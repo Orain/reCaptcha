@@ -6,7 +6,6 @@
  * Time: 0:26
  */
 
-namespace reCaptcha;
 
 class reCaptchaHooks {
 
