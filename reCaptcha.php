@@ -20,15 +20,16 @@ $wgExtensionCredits['antispam'][] = array(
 $wgReCaptchaKey = '';
 $wgReCaptchaSecret = '';
 
-		$hooksHandler = new reCaptchaHooks();
-
-		//Protect account creation
-		$GLOBALS['wgHooks']['UserCreateForm'][]         =
-		$GLOBALS['wgHooks']['AbortNewAccount'][]        =
-		//Protect content edition
-		$GLOBALS['wgHooks']['PageContentSave'][]        = array( $hooksHandler );
-		$GLOBALS['wgHooks']['EditPage::showEditForm:initial'][]   = array( $hooksHandler, 'onShowEditForm' );
-
 $wgAutoloadClasses['reCaptchaHooks'] = $dir . '/reCaptcha.hooks.php';
+
+$hooksHandler = new reCaptchaHooks();
+
+//Protect account creation
+$GLOBALS['wgHooks']['UserCreateForm'][]         =
+$GLOBALS['wgHooks']['AbortNewAccount'][]        =
+//Protect content edition
+$GLOBALS['wgHooks']['PageContentSave'][]        = array( $hooksHandler );
+$GLOBALS['wgHooks']['EditPage::showEditForm:initial'][]   = array( $hooksHandler, 'onShowEditForm' );
+
 
 
